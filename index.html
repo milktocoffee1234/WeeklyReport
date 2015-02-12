@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<title>kintonePostTest</title>
+<link rel="stylesheet" type="text/css" href="report.css">
+
+</head>
+<body>
+<form action = "report.php" method = "post">
+<div class = "field">
+	<span>当日以後に連絡した</span>	
+</div>
+<div class = "field2">
+	<div class = "row-field">
+		<table>
+		<tr>
+			<td class = "row-table-element">遅刻（当日以後）</td>
+			<td class = "row-table-element">欠勤（当日以後）</td>
+			<td class = "row-table-element">早退（当日以後）</td>
+
+		</tr>
+			<td><input type = "text" name = "late" class = "element"></td>
+			<td><input type = "text" name = "absence" class = "element"></td>
+			<td><input type = "text" name = "early" class = "element"></td>
+
+		</table>
+	</div>
+
+</div>
+
+<div class = "field">
+	<span>先日までに連絡した</span>
+</div>
+<div class = "field2">
+	<div class = "row-field">
+		<table>
+		<tr>
+			<td class = "row-table-element">遅刻（前日まで）</td>
+			<td class = "row-table-element">欠勤（前日まで）</td>
+			<td class = "row-table-element">早退（前日まで）</td>
+
+		</tr>
+			<td><input type = "text" name = "beforelate" class = "element"></td>
+			<td><input type = "text" name = "beforeabsence" class = "element"></td>
+			<td><input type = "text" name = "beforeearly" class = "element"></td>
+
+		</table>
+	</div>
+</div>
+<div class = "field">
+	<span>周りの人から受けた注意・指摘・クレーム</span>
+</div>
+<div class = "field2" >
+	<div style = "margin: 10px 0;">周りの人から受けた注意・指摘・クレーム</div>
+	<input type="radio" name="claim" value="あり">あり
+	<input type="radio" name="claim" value="なし" checked>なし
+	<div style = "margin: 20px 0;">誰から・なにで</div>
+	<textarea id = "claimtextform" name = "claimtextform"></textarea>
+</div>
+
+
+<div class = "field">
+	<span>仕事上の悩み・要望/プライベートな悩み・要望</span>
+</div>
+<div class = "field2">
+	<div style = "margin: 10px 0;">仕事上の悩み・要望</div>
+
+	<input type="radio" name="worktrouble" value="あり">あり
+	<input type="radio" name="worktrouble" value="なし" checked>なし
+	<div style = "margin: 20px 0;">仕事上の悩み</div>
+	<textarea id = "worktrouble" name = "worktroubleform"></textarea>
+	<div style = "margin: 20px 0;">仕事上の要望</div>
+	<textarea id = "worktrouble" name = "workdemandform"></textarea>
+	
+	<div style = "margin: 10px 0;">プライベートな悩み・要望</div>
+	<input type="radio" name="privatetrouble" value="あり">あり
+	<input type="radio" name="privatetrouble" value="なし" checked>なし
+	<div style = "margin: 20px 0;">プライベートな悩み</div>
+	<textarea id = "worktrouble" name = "privatetroubleform"></textarea>
+	<div style = "margin: 20px 0;">プライベートな要望</div>
+	<textarea id = "worktrouble" name = "privatedemandform"></textarea>
+</div>
+
+
+
+
+<div class = "field">
+	<span>営業・売上ＵＰに繋がるかもしれないトピック（現場での人材要望・プロジェクト動向など）</span>
+</div>
+<div class = "field2" >
+	<div style = "margin: 10px 0;">営業・売上UPにつながるかもしれないトピック</div>
+	<input type="radio" name="salesUp" value="あり">あり
+	<input type="radio" name="salesUp" value="なし" checked>なし
+	<div style = "margin: 20px 0;">営業・売上UPにつながるかもしれないトピックコメント</div>
+	<textarea id = "claimtextform" name = "salesUpform"></textarea>
+</div>
+
+
+
+
+<div class = "field">
+	<span>先週の実施タスク概要</span>
+</div>
+<div class = "field2">
+	<div style = "margin: 20px 0;">現場タスク（先週）</div>
+	<textarea id = "taskform" name = "beforetaskform"></textarea>
+	<div style = "margin: 20px 0;">現場以外タスク（先週）</div>
+	<textarea id = "taskform" name = "beforeexpecttaskform"></textarea>
+</div>
+
+
+<div class = "field">
+	<span>今週の予定タスク概要</span>
+</div>
+
+<div class = "field2">
+	<div style = "margin: 20px 0;">現場タスク（今週）</div>
+	<textarea id = "taskform" name = "tasktextform"></textarea>
+	<div style = "margin: 20px 0;">現場以外タスク（今週）</div>
+	<textarea id = "taskform" name = "expecttasktextform"></textarea>
+
+</div>
+
+<div class = "field2">
+	<table>
+	<tr>
+		<td class = "row-table-element">現在の課題</td>
+		<td class = "row-table-element">課題の対策</td>
+	</tr>
+		<td><textarea id = "problem" name = "problemform"></textarea></td>
+		<td><textarea id = "problem" name = "problemmeasure"></textarea></td>
+
+	</table>
+
+		<div style="margin: 10px 0;">報告者コメント</div>
+		<textarea id = "reporter" name = "reporterform"></textarea>
+
+</div>
+
+
+<input type = "file" name = "userfile"/>
+
+<input type = "submit" value = "submit"/>
+</form>
+
+<script>
+</script>
+</body>
+</html>

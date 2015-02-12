@@ -1,0 +1,46 @@
+.hr-cybozu {
+	border: none;
+	border-top: 1px dotted #999;
+	width: 135px;
+}
+
+.field{
+	margin:20px 50px;
+	padding:0;
+}
+.field2{
+	margin:10px 80px;
+	padding:0;
+}
+.element{
+	margin: 10px 0;
+	padding: 10px;
+	width : 150px;
+}
+.row-field{
+	display : inline;
+}
+.row-field-element{
+
+}
+#claimtextform{
+	width : 300px;
+	height : 100px;
+}
+#worktrouble{
+	width : 400px;
+	height : 100px;
+}
+#taskform{
+	width : 350px;
+	height: 100px;
+}
+#problem{
+	width: 300px;
+	height: 100px;
+}
+
+#reporter{
+	width: 600px;
+	height: 100px;
+}
