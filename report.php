@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset = "UTF-8">
-<title>週報</title>
+<title>WeeklyReport</title>
 <link rel="stylesheet" type="text/css" href="report.css">
 
 </head>
