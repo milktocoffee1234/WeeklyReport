@@ -1,0 +1,31 @@
+To: milktocoffee1234@gmail.com
+Subject: =?ISO-2022-JP?B?a2ludG9uZRskQiQrJGkkTiVhGyhC?=
+ =?ISO-2022-JP?B?GyRCITwlayRHJDkbKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+遅刻当日以後
+欠勤当日以後
+早退当日以後
+遅刻前日まで
+欠勤前日まで
+早退前日まで
+周りの人から受けた注意指摘クレーム
+なし誰からなにで
+仕事上の悩み要望
+なし仕事上の悩み
+仕事上の要望
+プライベートな悩み要望
+なしプライベートな悩み
+プライベートな要望
+営業売上ＵＰに繋がるかもしれないトピック
+なし営業・売上ＵＰに繋がるかもしれないトピックコメント
+現場タスク先週
+現場以外タスク先週
+現場タスク今週
+現場以外タスク今週
+現在の課題
+課題の対策
+報告者コメント
+

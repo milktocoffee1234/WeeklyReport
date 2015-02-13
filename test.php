@@ -9,42 +9,16 @@
 <?php
 
 
-$path = "/home/acrovisionllc/pear/PEAR";
+/*$path = "/home/acrovisionllc/pear/PEAR";
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 
-require_once("/home/acrovisionllc/pear/PEAR/HTTP/Request2.php");
+require_once("/home/acrovisionllc/pear/PEAR/HTTP/Request2.php");*/
+
+require_once("/HTTP/Request2.php");
 
 
-
-
-//require_once("/HTTP/Request2.php");
-
-// 認証設定
-$subDomain = "acrovision";
-$loginName = "goto";
-$password = "goto0126";
-
-// アプリID
-$appId = 121;
- 
-// リクエストヘッダ
- $header = array(
-    "Host: " . $subDomain . ".cybozu.com:443",
-    "Content-Type: application/json",
-    "X-Cybozu-Authorization: " . base64_encode($loginName . ':' . $password)
-);
-
-$kintoneValue =  array(                 
-                   /* "上長選択" => array(
-                            "value" => $_POST["superior"]
-                    ),*/
-                    "対象期間始" => array(
-                            "value" => $_POST["start"]
-                    ),
-                    "報告対象期間終" => array(
-                            "value" => $_POST["end"]
-                    ),
+$kintoneValue =  array(
                     "遅刻当日以後" => array(
                             "value" => $_POST["late"]
                     ),
@@ -116,51 +90,21 @@ $kintoneValue =  array(
                     )
                 );
 
-
-
-try {
-    // リクエスト作成
-    $request = new HTTP_Request2();
-    $request->setHeader($header);
-    $request->setUrl("https://" . $subDomain . ".cybozu.com/k/v1/record.json");
-    $request->setMethod(HTTP_Request2::METHOD_POST);
-    $request->setBody(json_encode(array("app" => $appId,
-    									"record" => $kintoneValue)
-    									));
-    $request->setConfig(array(
-      'ssl_verify_host' => false,
-      'ssl_verify_peer' => false
-    ));
- 
-    // レスポンス取得
-    $response = $request->send();
-
-    echo "アップロードできました";
- 
-// HTTP_Request2のエラーを表示
-} catch (HTTP_Request2_Exception $e) {
-    die($e->getMessage());
-// それ以外のエラーを表示
-} catch (Exception $e) {
-    die($e->getMessage());
+$message = "";
+foreach ($kintoneValue as $key => $value){
+    $message .= $key . "\n" . $value["value"];
 }
- 
-// エラー時
-if ($response->getStatus() != "200") {
-  echo sprintf("status: %s\n", $response->getStatus());
-  echo sprintf("cybozu error: %s\n", $response->getHeader('x-cybozu-error'));
-  echo sprintf("body: \n%s\n", $response->getBody());
-  die;
-}
+
+print_r($message);
 
 
 mb_language("ja");
 mb_internal_encoding("UTF-8");
 
-$subject = "週報に新しい登録がありました。";
+$subject = "kintoneからのメールです";
 $message = "";
 foreach ($kintoneValue as $key => $value){
-    $message .= "--" . $key . "--\n" . $value["value"] . "\n\n";
+    $message .= $key . "\n" . $value["value"];
 }
 
 mb_send_mail($_POST["adress"],$subject,$message);

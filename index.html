@@ -4,6 +4,10 @@
 <head>
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" rel="stylesheet" />
 
 	<title>kintonePostTest</title>
 <link rel="stylesheet" type="text/css" href="report.css">
@@ -11,6 +15,31 @@
 </head>
 <body>
 <form action = "report.php" method = "post">
+
+
+<div class = "otherfield">メールアドレス:
+<input type = "email" name = "adress" class = "adress">
+</div>
+
+<div class = "otherfield">
+
+	<div class = "row-field">
+		<table>
+		<tr>
+			<td class = "row-table-element">上長選択</td>
+			<td class = "row-table-element">対象期間（始）</td>
+			<td class = "row-table-element">対象期間（終）</td>
+
+		</tr>
+			<td><input type = "text" name = "superior" id = "super"></td>
+			<td><input type = "text" name = "start" id = "start" class = "priode" readonly=”readonly”></td>
+			<td><input type = "text" name = "end" id = "end" class = "priode " readonly=”readonly”></td>
+
+		</table>
+	</div>
+
+</div>
+
 <div class = "field">
 	<span>当日以後に連絡した</span>	
 </div>
@@ -23,9 +52,9 @@
 			<td class = "row-table-element">早退（当日以後）</td>
 
 		</tr>
-			<td><input type = "text" name = "late" class = "element"></td>
-			<td><input type = "text" name = "absence" class = "element"></td>
-			<td><input type = "text" name = "early" class = "element"></td>
+			<td><input type = "number" name = "late" class = "element" min = "0" value = "0"></td>
+			<td><input type = "number" name = "absence" class = "element" min = "0" value = "0"></td>
+			<td><input type = "number" name = "early" class = "element" min = "0" value = "0"></td>
 
 		</table>
 	</div>
@@ -44,9 +73,9 @@
 			<td class = "row-table-element">早退（前日まで）</td>
 
 		</tr>
-			<td><input type = "text" name = "beforelate" class = "element"></td>
-			<td><input type = "text" name = "beforeabsence" class = "element"></td>
-			<td><input type = "text" name = "beforeearly" class = "element"></td>
+			<td><input type = "number" name = "beforelate" class = "element" min = "0" value = "0"></td>
+			<td><input type = "number" name = "beforeabsence" class = "element" min = "0" value = "0"></td>
+			<td><input type = "number" name = "beforeearly" class = "element" min = "0" value = "0"></td>
 
 		</table>
 	</div>
@@ -106,9 +135,9 @@
 	<span>先週の実施タスク概要</span>
 </div>
 <div class = "field2">
-	<div style = "margin: 20px 0;">現場タスク（先週）</div>
+	<div style = "margin: 20px 0;">現場タスク（先週）&nbsp;&nbsp;&nbsp;&nbsp;※タスク名（タスク数量）場所を的確かつ端的に記載</div>
 	<textarea id = "taskform" name = "beforetaskform"></textarea>
-	<div style = "margin: 20px 0;">現場以外タスク（先週）</div>
+	<div style = "margin: 20px 0;">現場以外タスク（先週）&nbsp;&nbsp;&nbsp;&nbsp;※タスク名（タスク数量）場所を的確かつ端的に記載</div>
 	<textarea id = "taskform" name = "beforeexpecttaskform"></textarea>
 </div>
 
@@ -118,9 +147,9 @@
 </div>
 
 <div class = "field2">
-	<div style = "margin: 20px 0;">現場タスク（今週）</div>
+	<div style = "margin: 20px 0;">現場タスク（今週）&nbsp;&nbsp;&nbsp;&nbsp;※タスク名（タスク数量）場所を的確かつ端的に記載</div>
 	<textarea id = "taskform" name = "tasktextform"></textarea>
-	<div style = "margin: 20px 0;">現場以外タスク（今週）</div>
+	<div style = "margin: 20px 0;">現場以外タスク（今週）&nbsp;&nbsp;&nbsp;&nbsp;※タスク名（タスク数量）場所を的確かつ端的に記載</div>
 	<textarea id = "taskform" name = "expecttasktextform"></textarea>
 
 </div>
@@ -142,12 +171,44 @@
 </div>
 
 
-<input type = "file" name = "userfile"/>
-
-<input type = "submit" value = "submit"/>
+<div class = "otherfield"><input id = "submit" type = "submit" value = "submit"/></div>
 </form>
 
 <script>
+
+
+/*$("#start").datepicker({
+  onSelect: function(dateText) {
+  	if($("#end").val() == 0){
+  	}else{
+	  	if($("#end").val() < dateText){
+	  		alert("対象期間を見直してください");
+	  	}
+    }
+  }
+});
+$("#end").datepicker({
+  onSelect: function(dateText) {
+  	if($("#start").val() == 0){
+  	}else{
+	  	if($("#start").val() > dateText){
+	  		alert("対象期間を見直してください");
+	  	}
+    }
+  }
+});
+*/
+
+
+$(function() {
+	$("#start").datepicker();
+	$('#start').datepicker("option", "dateFormat", 'yy-mm-dd' );
+	$("#end").datepicker();
+	$('#end').datepicker("option", "dateFormat", 'yy-mm-dd' );
+});
+
+
+
 </script>
 </body>
 </html>
